@@ -30,4 +30,27 @@ arr.forEach(button => {
 
 })
 
+// to prevent zoom in
+function preventZoom() {
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (window.innerWidth <= 768) { // Disable zoom for mobile screens
+      viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+    } else {
+      viewport.setAttribute('content', 'width=device-width, initial-scale=1.0');
+    }
+  }
+
+  window.addEventListener('load', preventZoom);
+  window.addEventListener('resize', preventZoom);
+
+
+
+  display.addEventListener('keydown', (e) => {
+    e.preventDefault();
+  });
+
+  display.addEventListener('input', (e) => {
+    e.preventDefault();
+  });
+
 
